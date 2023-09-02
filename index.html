@@ -1,1 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" src="style.css">
+        <title>Stormtrooper Patrol Report</title>
+    </head>
+        <main>
+            <header>
+                <!-- title of empire patrol report -->
+                <h1 id="title" >Empire Patrol Report</h1>
+                <p id="description">Required as per Empire Regulations</p>
+            </header>
+            <!-- begin survey form -->
+                <!-- personnel details -->
+            <form  id="survey-form">
+                <!-- to make form active, add attributes to form element... method="post" action="#" -->
+                <fieldset>
+                    <label id="name-label">Identification Number #: <input type="text" name="name" id="name" placeholder="FN-2187" required></label>
+                    <label id="squadron-label">Squadron: <input type="text" name="squadron" id="squadron" placeholder="Stormtrooper" required></label>
+                    <label id="number-label">Unit #: <input type="number" name="unit-number" id="number" min="0" max="501" placeholder="501" required></label>
+                        <!-- vehicle use -->
+                        <label id="vehicle-use">Do you use a Vehicle? 
+                            <label for="veh-yes"><input id="veh-yes" type="radio" name="vehicle" value="true"> YES</label>
+                            <label for="veh-no"><input id="veh-no" type="radio" name="vehicle" value="true"> NO</label>
+                        </label>
+                        <!-- end vehicle use -->
+                    <!-- end basic questions -->
+                </fieldset>
 
+
+                <!-- locaton section -->
+                <fieldset>
+                    <!-- begin star system menu -->
+                    <label for="starSystem"> Which Star System are you located in?
+                        <select id="dropdown"> 
+                            <option value="" >(choose one)</option>
+                            <option value="1" >Endor</option>
+                            <option value="2" >Tatooine</option>
+                            <option value="3" >Mustafar</option>
+                            <option value="4" >Dagobah</option>
+                        </select>
+                    </label>
+                <!-- end star system menu -->
+                </fieldset>
+
+
+
+                <fieldset>
+                    <!-- buttons section -->
+                        <!-- droid buttons -->
+                    <label id="buttons"> Have you found the droids?
+                        <label for="found-droids"><input type="radio" name="droids" id="found-droids" value="true"> I found the droids we were looking for!</label>
+                        <label for="no-droids"><input type="radio" name="droids" id="no-droids" value="true"> I did not find them.</label>
+                    </label>
+                        <!-- end droid buttons -->
+                </fieldset>
+
+
+                
+                <fieldset>
+                    <!-- incident reporting -->
+                    <label id="box-incidents"> Encounters on Patrol:
+                        <label id="issue" ><input type="checkbox" id="issue" value="1"> Contact with Rebel Scum</label>
+                        <label id="issue" ><input type="checkbox" id="issue" value="2"> Petty Crime</label>
+                        <label id="issue" ><input type="checkbox" id="issue" value="3"> Jedi Encounter</label>
+                    </label>
+
+
+                    <label>Anything unusual to report?
+                        <textarea id="comments-extra" rows="5" cols="30" ></textarea>
+                    </label>
+
+                </fieldset>
+
+                <div>
+                    <button id="submit" value="Submit EPR">Submit Patrol Report</button>
+                </div>
+
+
+            </form>
+        </main>
+</html>
