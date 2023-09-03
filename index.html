@@ -2,82 +2,170 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" src="style.css">
+        <link rel="stylesheet" href="style.css">
+        <script src="client.js" defer></script>
         <title>Stormtrooper Patrol Report</title>
     </head>
-        <main>
+        <body>
             <header>
-                <!-- title of empire patrol report -->
+    <!-- title of empire patrol report -->
                 <h1 id="title" >Empire Patrol Report</h1>
-                <p id="description">Required as per Empire Regulations</p>
             </header>
-            <!-- begin survey form -->
-                <!-- personnel details -->
-            <form  id="survey-form">
-                <!-- to make form active, add attributes to form element... method="post" action="#" -->
-                <fieldset>
+
+                
+    <!-- begin survey form -->
+            <!-- <form  id="survey-form"> -->
+    <!-- to make form active, add attributes to form element... method="post" action="#" -->
+               
+    <!-- personnel details -->
+            <div id="id-tags">
+                <!-- <fieldset> -->
                     <label id="name-label">Identification Number #: <input type="text" name="name" id="name" placeholder="FN-2187" required></label>
                     <label id="squadron-label">Squadron: <input type="text" name="squadron" id="squadron" placeholder="Stormtrooper" required></label>
                     <label id="number-label">Unit #: <input type="number" name="unit-number" id="number" min="0" max="501" placeholder="501" required></label>
-                        <!-- vehicle use -->
-                        <label id="vehicle-use">Do you use a Vehicle? 
-                            <label for="veh-yes"><input id="veh-yes" type="radio" name="vehicle" value="true"> YES</label>
-                            <label for="veh-no"><input id="veh-no" type="radio" name="vehicle" value="true"> NO</label>
-                        </label>
-                        <!-- end vehicle use -->
-                    <!-- end basic questions -->
-                </fieldset>
+            </div>
+    <!-- end basic questions -->
+                <!-- </fieldset> -->
+
+    <!-- what weapon do you carry on patrol? -->
+    <!-- <div id="weapon-outfit">
+        <label id="weapon-outfit"> Please select your assigned weapon
+            <label for="e-11blaster"><input type="radio" class="inline" name="weapon-outfit" id="e-11blaster" value="true"> E-11 Blaster Rifle </label>
+            <label for="t21-light"><input type="radio" class="inline" name="weapon-outfit" id="t21-light" value="true"> T-21 Repeating Blaster </label>
+            <label for="relby-k23"><input type="radio" class="inline" name="weapon-outfit" id="relby-k23" value="true"> Relby-k23 </label>
+            <label for="other-weap"><input type="radio" class="inline" name="weapon-outfit" id="other-weap" value="true"> Other </label>
+        </label>
+    </div> -->
 
 
-                <!-- locaton section -->
-                <fieldset>
-                    <!-- begin star system menu -->
-                    <label for="starSystem"> Which Star System are you located in?
+
+
+
+    <!-- locaton section -->
+                <!-- <fieldset> -->
+    <!-- begin star system menu -->
+                <div id="star-system">
+
+                    <div>
+                    <label for="starSystem"> Which System are you located in?
                         <select id="dropdown"> 
-                            <option value="" >(choose one)</option>
+                            <option value="" >(select one)</option>
                             <option value="1" >Endor</option>
                             <option value="2" >Tatooine</option>
                             <option value="3" >Mustafar</option>
                             <option value="4" >Dagobah</option>
+                            <option onchange="starSystem()" value="5" >Space Station</option>
                         </select>
                     </label>
-                <!-- end star system menu -->
-                </fieldset>
+                    </div>
 
+                    <!-- <div id="space-station">   
+                        <label for="spaceStation-Loc"> Please Select your Station:
+                            <label for="death-star"><input id="death-star" type="radio" class="inline" name="spaceStation" select value="true"> Death Star</label>
+                            <label for="exe-cutor"><input id="exe-cutor" type="radio" class="inline" name="spaceStation" select value="true"> The Executor</label>
+                            <label for="imp-mining"><input id="imp-mining" type="radio" class="inline" name="spaceStation" select value="true"> Imperial Mining Station</label>
+                        </label>
+                    </div>  -->
 
-
-                <fieldset>
-                    <!-- buttons section -->
-                        <!-- droid buttons -->
-                    <label id="buttons"> Have you found the droids?
-                        <label for="found-droids"><input type="radio" name="droids" id="found-droids" value="true"> I found the droids we were looking for!</label>
-                        <label for="no-droids"><input type="radio" name="droids" id="no-droids" value="true"> I did not find them.</label>
-                    </label>
-                        <!-- end droid buttons -->
-                </fieldset>
-
-
+                </div>
+    <!-- end star system menu -->
                 
-                <fieldset>
-                    <!-- incident reporting -->
-                    <label id="box-incidents"> Encounters on Patrol:
-                        <label id="issue" ><input type="checkbox" id="issue" value="1"> Contact with Rebel Scum</label>
-                        <label id="issue" ><input type="checkbox" id="issue" value="2"> Petty Crime</label>
-                        <label id="issue" ><input type="checkbox" id="issue" value="3"> Jedi Encounter</label>
-                    </label>
+
+    <!-- ***** javascript code that selects which outpost they are within the system*** -->
+            
+            
+    <!-- end location section -->
+                <!-- </fieldset> -->
 
 
-                    <label>Anything unusual to report?
-                        <textarea id="comments-extra" rows="5" cols="30" ></textarea>
-                    </label>
+    <!-- gear, equipment and vehicles  start   -->
+                <!-- <fieldset> -->
 
-                </fieldset>
+    <!-- this this, or other ... please specify other -->
+                
+    <!-- was your weapon used on patrol? -->
+    <!-- yes/no why -->
 
+        <!-- vehicle use -->
+            <!-- <div id="vehicle-con">
+                
                 <div>
-                    <button id="submit" value="Submit EPR">Submit Patrol Report</button>
+                    <label id="vehicle-use">Do you use a Vehicle? 
+                        <label for="veh-yes"><input id="veh-yes" type="radio" class="inline" name="vehicle" onchange="vehicleUsed(true)" select value="true"> YES</label>
+                        <label for="veh-no"><input id="veh-no" type="radio" class="inline" name="vehicle" onclick="deleteVehicle()" value="true"> NO</label>
+                    </label>
+                </div>
+            </div>           -->
+            <!-- <div>
+                    <label for="usedV"> What do you use?
+                        <select id="dropdown"> 
+                            <option value="" >(select one)</option>
+                            <option value="1" >Speeder</option>
+                            <option value="2" >Walker</option>
+                            <option value="3" >Two legged Walker</option>
+                        </select>
+                    </label>
+                </div> -->
+
+        <!-- ****javascript section to select the kind of vehicle used**** -->
+        <!-- JAVASCRIPT upload a vehicle condition photo -->
+        <!-- end vehicle use -->
+    
+
+    <!-- gear condition -->
+                    <!-- <label id="gear-condition"> Please describe the state of your equipment
+                        <label for="great-condition"><input type="radio" class="inline" name="gear-condition" id="great-condition" value="true"> My gear is in Great Condition</label>
+                        <label for="average-condition"><input type="radio" class="inline" name="gear-condition" id="average-condition" value="true"> My gear is in ok Condition</label>
+                        <label for="poor-condition"><input type="radio" class="inline" name="gear-condition" id="poor-condition" value="true"> My gear needs replacement</label>
+                    </label> -->
+
+    <!-- JAVASCRIPT please describe if poor what needs to be replaced -->
+
+
+                <!-- </fieldset> -->
+                
+                <!-- <fieldset> -->
+    <!-- buttons section -->
+    
+    <!-- droid buttons -->
+                <div id="droids">
+                    <label id="buttons"> Have you found the droids?
+                        <label for="found-droids"><input type="radio" class="inline" name="droids" id="found-droids" value="true"> Yes</label>
+                        <label for="no-droids"><input type="radio" class="inline" name="droids" id="no-droids" value="true"> No</label>
+                    </label>
+                </div>
+    <!-- javascript message output of instructions for droids -->
+
+    <!-- end droid buttons -->
+
+    <!-- anything extra to report -->
+
+<!-- incident reporting -->
+                <div id="incidents"
+                <label id="box-incidents"> Patrol Encounters:
+                    <label id="issue" ><input type="checkbox" class="inline" id="issue" value="1"> Rebel Scum</label>
+                    <label id="issue" ><input type="checkbox" class="inline" id="issue" value="2"> Dangerous Wildlife</label>
+                    <label id="issue" ><input type="checkbox" class="inline" id="issue" value="3"> Jedi Combat</label>
+                    <label id="issue" ><input type="checkbox" class="inline" id="issue" value="4"> Civilian Unrest</label>
+                    <label id="issue" ><input type="checkbox" class="inline" id="issue" value="5"> Suspicious Acvitity</label>
+                    <label id="issue" ><input type="checkbox" class="inline" id="issue" value="6"> Moving Along</label>
+                </label>
                 </div>
 
 
-            </form>
-        </main>
+                <div id="unusual">
+                    <label>Anything unusual to report?
+                        <textarea id="comments-extra" rows="5" cols="30" placeholder="Did you shoot anything?" ></textarea>
+                    </label>
+                </div>
+                <!-- </fieldset> -->
+
+
+                    <!-- submit report button -->
+                    <input type="submit" value="Submit Patrol Report">
+
+                    
+
+            <!-- </form> -->
+        </body>
 </html>
