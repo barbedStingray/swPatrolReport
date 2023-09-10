@@ -48,16 +48,18 @@
 
                     <div>
                     <label for="starSystem"> Which System are you located in?
-                        <select id="dropdown"> 
-                            <option value="" >(select one)</option>
-                            <option value="1" >Endor</option>
+                        <select onchange='starSystemOutput()' id="dropDownStars"> 
+                            <!-- need to make the on change call the value of selected -->
+                            <option value="0" >(select one)</option>
+                            <option value="end" >Endor</option>
                             <option value="2" >Tatooine</option>
                             <option value="3" >Mustafar</option>
                             <option value="4" >Dagobah</option>
-                            <option onchange="starSystem()" value="5" >Space Station</option>
+                            <option value="5" >Space Station</option>
                         </select>
                     </label>
                     </div>
+                    <div id="base-selection"></div>
 
                     <!-- <div id="space-station">   
                         <label for="spaceStation-Loc"> Please Select your Station:

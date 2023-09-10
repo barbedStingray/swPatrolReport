@@ -1,3 +1,37 @@
+const inputVehicle = document.querySelector(`#vehicle-con`);
+const inputLocation = document.querySelector(`#star-system`);
+const starSystemDiv = document.querySelector(`#base-selection`);
+
+let starSystem;
+
+let starSystemBases = [
+    {
+        name: `Space Station`,
+        var: `5`,
+        locations: [`The Death Star`, `The Executor`, `Imperial Mining Operation`]
+    },
+    {
+        name: `Mustafar`,
+        var: `3`,
+        locations: [`Imperial Base`, `Station gamma`, `Sith Location`]
+    },
+    {
+        name: `Endor`,
+        var: `end`,
+        locations: [`Endor Shield Generator`, `Forest Outpost`, `Ship Docking Bay`]
+    },
+    {
+        name: `Tatooine`,
+        var: `2`,
+        locations: [`Station Alpha`, `Mos-Eisley`, `Tatooine Supply Depot`]
+    },
+    {
+        name: `Dagobah`,
+        var: `4`,
+        locations: [`Swamp Outpost`, `Imperial Secret Facility`, `Dagobah Relay Outpost`]
+    },
+];
+
 
 
 // imperial bases
@@ -16,57 +50,77 @@
 // training camp imiif-138
 // talus imperial outpost
 
-let spaceStation = {
-    impBase: "The Death Star",
-    starDestroyer: "The Executor",
-    facMining: "Imperial Mining Operation"
-}
 
-let endorStation = {
-    impBase: "Endor Shield Generator",
-    outpost: "Forest Outpost",
-    outpost1: "Ship Docking Bay"
-}
 
 // do you use a vehicle?
 
 console.log(`Ready for Action!`);
 
 
-const inputVehicle = document.querySelector(`#vehicle-con`);
-const inputLocation = document.querySelector(`#star-system`);
 
-function vehicleUsed(val){
-    if(val === true){
-        inputVehicle.innerHTML +=                 
-    `<div id="veh-used">
-        <label for="usedV"> What do you use?
-            <select id="dropdown"> 
-                <option value="" >(select one)</option>
-                <option value="1" >Speeder</option>
-                <option value="2" >Walker</option>
-                <option value="3" >Two legged Walker</option>
-            </select>
-        </label>
-    </div>`
-    }// end true
-}// end function
+// function vehicleUsed(val){
+//     if(val === true){
+//         inputVehicle.innerHTML +=                 
+//     `<div id="veh-used">
+//         <label for="usedV"> What do you use?
+//             <select id="dropdown"> 
+//                 <option value="" >(select one)</option>
+//                 <option value="1" >Speeder</option>
+//                 <option value="2" >Walker</option>
+//                 <option value="3" >Two legged Walker</option>
+//             </select>
+//         </label>
+//     </div>`
+//     }// end true
+// }// end function
 
 
-function starSystem(){
-    inputLocation.innerHTML += `
-                    <div id="space-station">   
-                        <label for="spaceStation-Loc"> Please Select your Station:
-                            <label for="death-star"><input id="death-star" type="radio" class="inline" name="spaceStation" select value="true"> Death Star</label>
-                            <label for="exe-cutor"><input id="exe-cutor" type="radio" class="inline" name="spaceStation" select value="true"> The Executor</label>
-                            <label for="imp-mining"><input id="imp-mining" type="radio" class="inline" name="spaceStation" select value="true"> Imperial Mining Station</label>
-                        </label>
-                    </div> `
-}// end function insert
+function starSystemOutput(){
+    console.log(`in starSystemOutput`);
+    clearStarSystem();
+    // define value from HTML (THIS TURNED OUT TO BE A STRING VALUE! WHO WOULD HAVE THOUGHT!)
+    let systemValue = document.getElementById("dropDownStars").value;
+    // console.log(starSystem);
+    // console.log(systemValue);
 
+    // setting the starSystem variable
+    for(let item of starSystemBases){
+        console.log(`inside starSystemBase loop`);
+        if(item.var === systemValue){
+            // console.log(`found a match`);
+            starSystem = item.var;
+        }// end find value match and set variable starSystem
+    }// end loop through starSystemBases 
 
+    console.log(starSystem);
 
+    // loop through bases to display names of bases
+    for(let item of starSystemBases){
+        console.log(`inside displaying bases`);
+        if(starSystem === item.var){
+            console.log(`Your base is on ${item.name} with locations of ${item.locations}`);
+            for(let base of item.locations){
+                console.log(`this base is ${base}`);
+                starSystemDiv.innerHTML += 
+                `
+                <label for="${base}"><input id="${base}" type="radio" class="inline" name="${base}" select value="true">${base}</label>
+                `;
+            }// end loop through bases
+        }// end matching the dropdown menu to selection
+    }// end looping through bases display
+}// end star system bases
 
+// end function insert
+// console.log(starSystemOutput(`Space Station`));
+
+function clearStarSystem(){
+    starSystemDiv.innerHTML = ``;
+    
+    
+}
+function repeatedInsanity(){
+    console.log(document.getElementById("dropDownStars").value);
+}
 
 
 
