@@ -27,15 +27,19 @@
     <!-- end basic questions -->
                 <!-- </fieldset> -->
 
+
+
+
     <!-- what weapon do you carry on patrol? -->
-    <!-- <div id="weapon-outfit">
-        <label id="weapon-outfit"> Please select your assigned weapon
-            <label for="e-11blaster"><input type="radio" class="inline" name="weapon-outfit" id="e-11blaster" value="true"> E-11 Blaster Rifle </label>
-            <label for="t21-light"><input type="radio" class="inline" name="weapon-outfit" id="t21-light" value="true"> T-21 Repeating Blaster </label>
-            <label for="relby-k23"><input type="radio" class="inline" name="weapon-outfit" id="relby-k23" value="true"> Relby-k23 </label>
-            <label for="other-weap"><input type="radio" class="inline" name="weapon-outfit" id="other-weap" value="true"> Other </label>
+    <div id="weapon-outfit">
+        <label id="weapon-id"> Do you carry a Weapon?
+            <label for="weapon-yes"><input type="radio" class="inline" name="weapon" id="e-11blaster" onchange="weaponUsed(true)" value="true"> Yes </label>
+            <label for="weapon-no"><input type="radio" class="inline" name="weapon" id="t21-light" onchange="weaponUsed(false)" value="false"> No </label>
         </label>
-    </div> -->
+        <div id="weapon-type"></div>
+        <div id="fired-yn"></div>
+        <div id="hit-yn"></div>
+    </div>
 
 
 
@@ -61,22 +65,9 @@
                     </div>
                     <div id="base-selection"></div>
 
-                    <!-- <div id="space-station">   
-                        <label for="spaceStation-Loc"> Please Select your Station:
-                            <label for="death-star"><input id="death-star" type="radio" class="inline" name="spaceStation" select value="true"> Death Star</label>
-                            <label for="exe-cutor"><input id="exe-cutor" type="radio" class="inline" name="spaceStation" select value="true"> The Executor</label>
-                            <label for="imp-mining"><input id="imp-mining" type="radio" class="inline" name="spaceStation" select value="true"> Imperial Mining Station</label>
-                        </label>
-                    </div>  -->
-
                 </div>
     <!-- end star system menu -->
                 
-
-    <!-- ***** javascript code that selects which outpost they are within the system*** -->
-            
-            
-    <!-- end location section -->
                 <!-- </fieldset> -->
 
 
@@ -89,30 +80,20 @@
     <!-- yes/no why -->
 
         <!-- vehicle use -->
-            <!-- <div id="vehicle-con">
+            <div id="vehicle-con">
                 
                 <div>
-                    <label id="vehicle-use">Do you use a Vehicle? 
-                        <label for="veh-yes"><input id="veh-yes" type="radio" class="inline" name="vehicle" onchange="vehicleUsed(true)" select value="true"> YES</label>
-                        <label for="veh-no"><input id="veh-no" type="radio" class="inline" name="vehicle" onclick="deleteVehicle()" value="true"> NO</label>
+                    <label id="vehicle-use">Did you use a Vehicle? 
+                        <label for="veh-yes"><input id="veh-yes" type="radio" class="inline" name="vehicle" onchange="vehicleUsed(true)" select value="true"> Yes </label>
+                        <label for="veh-no"><input id="veh-no" type="radio" class="inline" name="vehicle" onchange="vehicleUsed(false)" value="false"> No </label>
                     </label>
                 </div>
-            </div>           -->
-            <!-- <div>
-                    <label for="usedV"> What do you use?
-                        <select id="dropdown"> 
-                            <option value="" >(select one)</option>
-                            <option value="1" >Speeder</option>
-                            <option value="2" >Walker</option>
-                            <option value="3" >Two legged Walker</option>
-                        </select>
-                    </label>
-                </div> -->
+                <div id="vehicle-type"></div>
+                <div id="vehicle-upload"></div>
+            </div>          
 
-        <!-- ****javascript section to select the kind of vehicle used**** -->
         <!-- JAVASCRIPT upload a vehicle condition photo -->
         <!-- end vehicle use -->
-    
 
     <!-- gear condition -->
                     <!-- <label id="gear-condition"> Please describe the state of your equipment
