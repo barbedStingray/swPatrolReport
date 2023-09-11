@@ -28,29 +28,11 @@
                 <!-- </fieldset> -->
 
 
-
-
-    <!-- what weapon do you carry on patrol? -->
-    <div id="weapon-outfit">
-        <label id="weapon-id"> Do you carry a Weapon?
-            <label for="weapon-yes"><input type="radio" class="inline" name="weapon" id="e-11blaster" onchange="weaponUsed(true)" value="true"> Yes </label>
-            <label for="weapon-no"><input type="radio" class="inline" name="weapon" id="t21-light" onchange="weaponUsed(false)" value="false"> No </label>
-        </label>
-        <div id="weapon-type"></div>
-        <div id="fired-yn"></div>
-        <div id="hit-yn"></div>
-    </div>
-
-
-
-
-
     <!-- locaton section -->
                 <!-- <fieldset> -->
     <!-- begin star system menu -->
+            
                 <div id="star-system">
-
-                    <div>
                     <label for="starSystem"> Which System are you located in?
                         <select onchange='starSystemOutput()' id="dropDownStars"> 
                             <!-- need to make the on change call the value of selected -->
@@ -62,11 +44,27 @@
                             <option value="5" >Space Station</option>
                         </select>
                     </label>
-                    </div>
-                    <div id="base-selection"></div>
+                </div>
+
+                <div id="base-location">
 
                 </div>
+
     <!-- end star system menu -->
+
+
+        <!-- what weapon do you carry on patrol? -->
+    
+        <div id="weapon-outfit">
+            <label id="weapon-id"> Do you carry a Weapon?
+                <label for="weapon-yes"><input type="radio" class="inline" name="weapon" id="e-11blaster" onchange="weaponUsed(true)" value="true"> Yes </label>
+                <label for="weapon-no"><input type="radio" class="inline" name="weapon" id="t21-light" onchange="weaponUsed(false)" value="false"> No </label>
+            </label>
+        </div>
+        <div id="weapon-sector">
+            <div id="fired-yn"></div>
+            <div id="hit-yn"></div>
+        </div>
                 
                 <!-- </fieldset> -->
 
@@ -81,16 +79,13 @@
 
         <!-- vehicle use -->
             <div id="vehicle-con">
-                
-                <div>
                     <label id="vehicle-use">Did you use a Vehicle? 
                         <label for="veh-yes"><input id="veh-yes" type="radio" class="inline" name="vehicle" onchange="vehicleUsed(true)" select value="true"> Yes </label>
                         <label for="veh-no"><input id="veh-no" type="radio" class="inline" name="vehicle" onchange="vehicleUsed(false)" value="false"> No </label>
                     </label>
-                </div>
-                <div id="vehicle-type"></div>
-                <div id="vehicle-upload"></div>
-            </div>          
+            </div>
+
+            <div id="vehicle-desc"></div>
 
         <!-- JAVASCRIPT upload a vehicle condition photo -->
         <!-- end vehicle use -->
@@ -111,12 +106,12 @@
     <!-- buttons section -->
     
     <!-- droid buttons -->
-                <div id="droids">
+                <!-- <div id="droids">
                     <label id="buttons"> Have you found the droids?
                         <label for="found-droids"><input type="radio" class="inline" name="droids" id="found-droids" value="true"> Yes</label>
                         <label for="no-droids"><input type="radio" class="inline" name="droids" id="no-droids" value="true"> No</label>
                     </label>
-                </div>
+                </div> -->
     <!-- javascript message output of instructions for droids -->
 
     <!-- end droid buttons -->

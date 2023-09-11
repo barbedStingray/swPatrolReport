@@ -1,8 +1,9 @@
-const inputVehicle = document.querySelector(`#vehicle-type`);
-const inputVehicleUpload = document.querySelector(`#vehicle-upload`);
-const inputLocation = document.querySelector(`#star-system`);
-const starSystemDiv = document.querySelector(`#base-selection`);
-const weaponTypeDiv = document.querySelector(`#weapon-type`);
+const inputVehicleDiv = document.querySelector(`#vehicle-desc`);
+const starSystemDiv = document.querySelector(`#base-location`);
+const weaponSectorDiv = document.querySelector(`#weapon-sector`);
+// const weaponTypeDiv = document.querySelector(`#weapon-type`);
+// const starLocation = document.querySelector(`#base-selection`);
+// const vehicleTypeDiv = document.querySelector(`#vehicle-type`);
 
 let starSystem;
 let vehicleValue;
@@ -59,19 +60,23 @@ let starSystemBases = [
 
 console.log(`Ready for Action!`);
 
+// ************* POPULATE DOM FUNCTIONS ****************
 
+// weapon used populate DOM
 function weaponUsed(val){
     if(val === true){
         console.log(`you have used a weapon!`);
-        weaponTypeDiv.innerHTML += 
-        `<label for="weapon-used"> Indicate Your Weapon
-            <select onchange="" id="dropDownWeapons">
-                <option value="" >(select one)</option>
-                <option value="yy" >E-11 Blaster Rifle</option>
-                <option value="yy" >Repeating Blaster</option>
-                <option value="yy" >Relby-k23</option>
-            </select>
-        </label>
+        weaponSectorDiv.innerHTML += 
+        `<div id="weapon-type">
+            <label for="weapon-used"> Indicate Your Weapon
+                <select onchange="" id="dropDownWeapons">
+                    <option value="" >(select one)</option>
+                    <option value="yy" >E-11 Blaster Rifle</option>
+                    <option value="yy" >Repeating Blaster</option>
+                    <option value="yy" >Relby-k23</option>
+                </select>
+            </label>
+        </div>
         `
     }
     else if(val === false){
@@ -85,38 +90,25 @@ function vehicleUsed(val){
         if(val === true){
             console.log(`vehicle dropdown initiated`);
             clearVehicle();
-                inputVehicle.innerHTML +=                 
-                    `<label for="usedV"> What do you use?
-                        <select onchange="uploadVehiclePhoto()" id="dropDownVehicle"> 
-                            <option value="" >(select one)</option>
-                            <option value="xx" >74-Z Speeder</option>
-                            <option value="xx" >AT-ST</option>
-                            <option value="xx" >AT-AT</option>
-                            <option value="xx" >Tie Fighter</option>
-                        </select>
-                    </label>`
+                inputVehicleDiv.innerHTML +=                 
+                    `<div id="vehicle-type">
+                        <label for="usedV"> What do you use?
+                            <select id="dropDownVehicle"> 
+                                <option value="" >(select one)</option>
+                                <option value="xx" >74-Z Speeder</option>
+                                <option value="xx" >AT-ST</option>
+                                <option value="xx" >AT-AT</option>
+                                <option value="xx" >Tie Fighter</option>
+                            </select>
+                        </label>
+                        <label for='vehicle-pic'>Upload Condition Record: <input name='vehicle-pic' id='vehicle-pic' type="file"></label>
+                    </div>`
         }// end true
         if(val === false){
             console.log(`vehicle log clear`);
             clearVehicle();
-            clearVehicleUpload();
         } // end false
 }// end function
-
-// function that allows the upload of vehicle photo
-function uploadVehiclePhoto(){
-    console.log(`inVehicleUplaod`);
-    vehicleValue = document.getElementById(`dropDownVehicle`).value;
-    console.log(vehicleValue);
-    clearVehicleUpload();
-        if(vehicleValue == `xx`){
-            console.log(`upload your photo!`);
-            inputVehicleUpload.innerHTML += 
-            `
-            <label for='vehicle-pic'>Upload Condition Record: <input name='vehicle-pic' id='vehicle-pic' type="file"></label>
-            `;
-        }// if string option selected return upload box
-}
 
 
 // function for the starSystem DOM
@@ -144,20 +136,21 @@ function starSystemOutput(){
         console.log(`inside displaying bases`);
         if(starSystem === item.var){
             console.log(`Your base is on ${item.name} with locations of ${item.locations}`);
-            starSystemDiv.innerHTML += `Select your Base`
+            starSystemDiv.innerHTML += `<div id="base-selection">Select your Base</div>`
             for(let base of item.locations){
                 console.log(`this base is ${base}`);
                 starSystemDiv.innerHTML += 
-                `
+                `<div id="base-op"
                 <label for="${base}"><input id="${base}" type="radio" class="inline" name="base-ops" select value="true"> ${base} </label>
-                `;
+                </div>`;
             }// end loop through bases
         }// end matching the dropdown menu to selection
     }// end looping through bases display
 }// end star system bases
 
-// end function insert
 
+
+// ******************* CLEAR FUNCTIONS ********************
 //clears star system field
 function clearStarSystem(){
     starSystemDiv.innerHTML = ``;  
@@ -165,17 +158,12 @@ function clearStarSystem(){
 
 //clears the selector for vehicle used
 function clearVehicle(){
-    inputVehicle.innerHTML = ``;
-}
-
-function clearVehicleUpload(){
-    inputVehicleUpload.innerHTML = ``;
+    inputVehicleDiv.innerHTML = ``;
 }
 
 function clearWeaponType(){
-    weaponTypeDiv.innerHTML = ``;
+    weaponSectorDiv.innerHTML = ``;
 }
-
 
 
 
