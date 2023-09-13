@@ -111,8 +111,9 @@ function vehicleUsed(val){
 }// end function
 
 
-// function for the starSystem DOM
-function starSystemOutput(){
+
+// // function for the starSystem DOM
+function starSystemOutput(event){
     console.log(`in starSystemOutput`);
     clearStarSystem();
     // define value from HTML (THIS TURNED OUT TO BE A STRING VALUE! WHO WOULD HAVE THOUGHT!)
@@ -123,6 +124,7 @@ function starSystemOutput(){
     // setting the starSystem variable
     for(let item of starSystemBases){
         console.log(`inside starSystemBase loop`);
+        
         if(item.var === systemValue){
             // console.log(`found a match`);
             starSystem = item.var;
@@ -134,11 +136,16 @@ function starSystemOutput(){
     // loop through bases to display names of bases
     for(let item of starSystemBases){
         console.log(`inside displaying bases`);
+
         if(starSystem === item.var){
             console.log(`Your base is on ${item.name} with locations of ${item.locations}`);
-            starSystemDiv.innerHTML += `<div id="base-selection">Select your Base</div>`
+
+            starSystemDiv.innerHTML += `
+            <div id="base-selection">Select your Base</div>`
+
             for(let base of item.locations){
                 console.log(`this base is ${base}`);
+
                 starSystemDiv.innerHTML += 
                 `<div id="base-op"
                 <label for="${base}"><input id="${base}" type="radio" class="inline" name="base-ops" select value="true"> ${base} </label>
@@ -152,7 +159,9 @@ function starSystemOutput(){
 
 // ******************* CLEAR FUNCTIONS ********************
 //clears star system field
-function clearStarSystem(){
+function clearStarSystem(event){
+    console.log(`clear the stars`);
+    // event.target.remove();
     starSystemDiv.innerHTML = ``;  
 }
 
